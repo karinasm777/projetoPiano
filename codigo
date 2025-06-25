@@ -1,0 +1,63 @@
+#define NOTA_D4 294
+#define NOTA_G4 392
+#define NOTA_A4 440
+#define NOTA_A5 880
+
+int pino_Audio = 12;
+int pinos_LEDS[4]= {3,4,5,6};
+int pinos_botoes[4]= {8,9,10,11};
+
+int botao_pressionado = 0;
+
+
+
+void setup() {
+
+for (int i=0; i<=3;i++){
+  pinMode(pinos_LEDS[i], OUTPUT);
+}
+
+
+for (int i=0; i<=3;i++){
+  pinMode(pinos_botoes[i], INPUT_PULLUP);
+}
+
+pinMode(pino_Audio, OUTPUT);
+
+}
+
+void loop() {
+
+if(digitalRead(pinos_botoes[0]) == HIGH){
+  digitalWrite(pinos_LEDS[0],HIGH);
+//tone(pino_Audio, NOTA_D4);  
+delay(500);
+noTone(pino_Audio);
+digitalWrite(pinos_LEDS[0],LOW);
+}
+
+if(digitalRead(pinos_botoes[1]) == HIGH){
+  digitalWrite(pinos_LEDS[1],HIGH);
+//tone(pino_Audio, NOTA_G4);  
+delay(500);
+noTone(pino_Audio);
+digitalWrite(pinos_LEDS[1],LOW);
+}
+
+if(digitalRead(pinos_botoes[2]) == HIGH){
+  digitalWrite(pinos_LEDS[2],HIGH);
+//tone(pino_Audio, NOTA_A4);  
+delay(500);
+noTone(pino_Audio);
+digitalWrite(pinos_LEDS[2],LOW);
+}
+
+if(digitalRead(pinos_botoes[3]) == HIGH){
+  digitalWrite(pinos_LEDS[3],HIGH);
+//tone(pino_Audio, NOTA_A5);  
+delay(500);
+noTone(pino_Audio);
+digitalWrite(pinos_LEDS[3],LOW);
+}
+
+}
